@@ -51,6 +51,7 @@ public class GameManager : MonoSingleton<GameManager>
             Directory.CreateDirectory(SAVE_PATH);
         }
         LoadFromJson();
+        Screen.SetResolution(1440, 2960, true);
     }
 
     private void Back()
