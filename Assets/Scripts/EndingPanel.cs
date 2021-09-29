@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class EndingPanel : MonoBehaviour
 {
@@ -11,9 +12,17 @@ public class EndingPanel : MonoBehaviour
     private Text needText = null;
     [SerializeField]
     private Button activeButton = null;
+    [SerializeField]
+    private GameObject cradit = null;
+    [SerializeField]
+    private Text endTex = null;
 
     private End end = null;
 
+    private void Awake()
+    {
+        cradit.SetActive(false);
+    }
     private void Start()
     {
         if (end.active == true)
@@ -121,7 +130,8 @@ public class EndingPanel : MonoBehaviour
     public void OnClick()
     {
         end.active = true;
-        SaveClean();
+        ViewCradit();
+        //SaveClean();
         activeButton.gameObject.SetActive(false);
     }
     
@@ -138,5 +148,48 @@ public class EndingPanel : MonoBehaviour
         user.exp=0;
         user.maxExp=10;
         GameManager.Instance.UI.ChooseName();
+    }
+    private void ViewCradit()
+    {
+        cradit.SetActive(true);
+        endTex.text = string.Format
+       ("\n이름 : {0}\n{1}대 대장장이\n레벨 : {2}\n\n만든 장비의 수\n{3}개\n\n업그레이드 한 횟수\n{4}번\n\n고용한 서포터의 수\n{5}명\n\n엔딩\n{6}",
+       GameManager.Instance.CurrentUser.userName, GameManager.Instance.CurrentUser.userCount, GameManager.Instance.CurrentUser.level,
+       CountMake(), CountUpgrade(), CountSupporter(), endNameText.text);
+       endTex.transform.DOMove(new Vector3(0, 0, 0), 10f);
+    }
+
+    public void ClickButton()
+    {
+        SaveClean();
+        cradit.SetActive(false);
+    }
+
+    private int CountMake()
+    {
+        int sum = 0;
+        foreach(Wp wp in GameManager.Instance.CurrentUser.wpList)
+        {
+            sum += wp.amount;
+        }
+        return sum;
+    }
+    private int CountUpgrade()
+    {
+        int sum = 0;
+        foreach (Up up in GameManager.Instance.CurrentUser.upList)
+        {
+            sum += up.amount;
+        }
+        return sum;
+    }
+    private int CountSupporter()
+    {
+        int sum = 0;
+        foreach (Sp sp in GameManager.Instance.CurrentUser.spList)
+        {
+            sum += sp.amount;
+        }
+        return sum;
     }
 }

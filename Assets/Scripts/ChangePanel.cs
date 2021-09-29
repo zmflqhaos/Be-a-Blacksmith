@@ -7,6 +7,8 @@ public class ChangePanel : MonoBehaviour
 {
     [SerializeField]
     private GameObject scroll = null;
+    [SerializeField]
+    private GameObject[] scrolls = new GameObject[4];
     private void Start()
     {
         scroll.SetActive(false);
@@ -35,5 +37,13 @@ public class ChangePanel : MonoBehaviour
     public void CloseButton()
     {
         scroll.SetActive(false);
+    }
+
+    public void AllClose()
+    {
+        for(int i=0; i<scrolls.Length; i++)
+        {
+            scrolls[i].SetActive(false);
+        }
     }
 }

@@ -5,7 +5,6 @@ using DG.Tweening;
 public class HitPool : MonoBehaviour
 {
     private Text hitText = null;
-
     public void Show(Vector2 mousePosition)
     {
         hitText = GetComponent<Text>();

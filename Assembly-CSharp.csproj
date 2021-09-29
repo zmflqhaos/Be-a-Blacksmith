@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0B75CDCF-C488-CA6B-DDB3-1957ECE0FDFA}</ProjectGuid>
+    <ProjectGuid>{85CC0303-726D-8CEE-EEBA-698AD1414C67}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -68,9 +68,6 @@
     <Compile Include="Assets\Scripts\Base\Wp.cs" />
     <Compile Include="Assets\Scripts\ChangePanel.cs" />
     <Compile Include="Assets\Scripts\Monosingleton.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Save\SaveFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -727,7 +724,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{9175220C-11AE-AA2B-105D-D2778C8A66D0}</Project>
+      <Project>{24138659-AF85-8428-0457-77126F707BC0}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
