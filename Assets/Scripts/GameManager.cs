@@ -51,7 +51,6 @@ public class GameManager : MonoSingleton<GameManager>
             Directory.CreateDirectory(SAVE_PATH);
         }
         LoadFromJson();
-        Screen.SetResolution(1440, 2960, true);
     }
 
     private void Back()
@@ -64,6 +63,7 @@ public class GameManager : MonoSingleton<GameManager>
     private void Start()
     {
         InvokeRepeating("SaveToJson", 1f, 60f);
+        Screen.SetResolution(1440, 2960, true);
     }
 
     private void Update()
