@@ -52,23 +52,17 @@ public class GameManager : MonoSingleton<GameManager>
         }
         LoadFromJson();
     }
-
-    private void Back()
-    {
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
     private void Start()
     {
         InvokeRepeating("SaveToJson", 1f, 60f);
-        Screen.SetResolution(1440, 2960, true);
     }
 
     private void Update()
     {
-        Back();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
     public void AddCE(long a, float b)
     {

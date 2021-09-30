@@ -13,11 +13,11 @@ public class UpEffect : MonoBehaviour
 
     public void StartingEffect(int a)
     {
-        if(a==1)
+        if (a == 1)
         {
             TagWeapUp();
         }
-        else if(a==2)
+        else if (a == 2)
         {
             TagArmorUp();
         }
@@ -25,9 +25,17 @@ public class UpEffect : MonoBehaviour
         {
             TagIronUp();
         }
-        else if(a==4)
+        else if (a == 4)
         {
             TagGoldUp();
+        }
+        else if (a == 5)
+        {
+            TagTitanUp();
+        }
+        else if (a == 6) 
+        {
+            TagVibUp();
         }
     }
     private void TagWeapUp()
@@ -68,6 +76,28 @@ public class UpEffect : MonoBehaviour
         foreach (Wp wp in GameManager.Instance.CurrentUser.wpList)
         {
             if (wp.wpCate == "Gold")
+            {
+                wp.gCoin += wp.fCoin / 5;
+                wpgrade.UpdateValues();
+            }
+        }
+    }
+    private void TagTitanUp()
+    {
+        foreach (Wp wp in GameManager.Instance.CurrentUser.wpList)
+        {
+            if (wp.wpCate == "Titan")
+            {
+                wp.gCoin += wp.fCoin / 5;
+                wpgrade.UpdateValues();
+            }
+        }
+    }
+    private void TagVibUp()
+    {
+        foreach (Wp wp in GameManager.Instance.CurrentUser.wpList)
+        {
+            if (wp.wpCate == "Vib")
             {
                 wp.gCoin += wp.fCoin / 5;
                 wpgrade.UpdateValues();

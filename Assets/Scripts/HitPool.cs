@@ -8,7 +8,7 @@ public class HitPool : MonoBehaviour
     public void Show(Vector2 mousePosition)
     {
         hitText = GetComponent<Text>();
-        hitText.text = string.Format("+{0}", GameManager.Instance.CurrentUser.tgH*GameManager.Instance.CurrentUser.claerending);
+        hitText.text = string.Format("+{0}H", GameManager.Instance.CurrentUser.tgH*GameManager.Instance.CurrentUser.claerending);
 
         gameObject.SetActive(true);
         transform.SetParent(GameManager.Instance.Canvas.transform);

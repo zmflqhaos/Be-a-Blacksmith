@@ -37,6 +37,12 @@ public class UIManager : MonoBehaviour
     private GameObject inputField = null;
     [SerializeField]
     private Text inputText = null;
+    [SerializeField]
+    private GameObject resetWp = null;
+    [SerializeField]
+    private GameObject resetSp = null;
+    [SerializeField]
+    private GameObject resetUp = null;
     private List<WpgradePanel> wpgradePanelList = new List<WpgradePanel>();
     private List<UpgradePanel> upgradePanelList = new List<UpgradePanel>();
     private List<SpgradePanel> spgradePanelList = new List<SpgradePanel>();
@@ -115,6 +121,51 @@ public class UIManager : MonoBehaviour
             edPanelList.Add(newPanelComponent);
         }
     }
+
+    public void SetAllPanels()
+    {
+        GameObject newPanel = null;
+        SpgradePanel newPanelComponent1 = null;
+        WpgradePanel newPanelComponent2 = null;
+        UpgradePanel newPanelComponent3 = null;
+        for (int i = 1; i < resetSp.transform.childCount; i++)
+        {
+            Destroy(resetSp.transform.GetChild(i).gameObject);
+        }
+        for (int i = 1; i < resetWp.transform.childCount; i++)
+        {
+            Destroy(resetWp.transform.GetChild(i).gameObject);
+        }
+        for (int i = 1; i < resetUp.transform.childCount; i++)
+        {
+            Destroy(resetUp.transform.GetChild(i).gameObject);
+        }
+        foreach (Sp sp in GameManager.Instance.CurrentUser.spList)
+        {
+            newPanel = Instantiate(spPanelTemplate, spPanelTemplate.transform.parent);
+            newPanelComponent1 = newPanel.GetComponent<SpgradePanel>();
+            newPanelComponent1.SetValue(sp);
+            newPanel.SetActive(true);
+            spgradePanelList.Add(newPanelComponent1);
+        }
+        foreach (Wp wp in GameManager.Instance.CurrentUser.wpList)
+        {
+            newPanel = Instantiate(wpPanelTemplate, wpPanelTemplate.transform.parent);
+            newPanelComponent2 = newPanel.GetComponent<WpgradePanel>();
+            newPanelComponent2.SetValue(wp);
+            newPanel.SetActive(true);
+            wpgradePanelList.Add(newPanelComponent2);
+        }
+        foreach (Up up in GameManager.Instance.CurrentUser.upList)
+        {
+            newPanel = Instantiate(upPanelTemplate, upPanelTemplate.transform.parent);
+            newPanelComponent3 = newPanel.GetComponent<UpgradePanel>();
+            newPanelComponent3.SetValue(up);
+            newPanel.SetActive(true);
+            upgradePanelList.Add(newPanelComponent3);
+        }
+    }
+
     public void OnClickPlayer()
     {
         for (int i = 0; i < scrolls.transform.childCount; i++)

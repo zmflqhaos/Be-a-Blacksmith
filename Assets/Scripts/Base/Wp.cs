@@ -3,6 +3,7 @@
 public class Wp
 {
     public string wpName;
+    public int wpNumber;
     public string wpTag;
     public string wpCate;
     public int amount;

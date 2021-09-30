@@ -58,15 +58,15 @@
     <Compile Include="Assets\Scripts\Base\End.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\UpEffect.cs" />
-    <Compile Include="Assets\Scripts\UpgradePanel.cs" />
+    <Compile Include="Assets\Scripts\Panels\UpgradePanel.cs" />
     <Compile Include="Assets\Scripts\Base\User.cs" />
-    <Compile Include="Assets\Scripts\EndingPanel.cs" />
+    <Compile Include="Assets\Scripts\Panels\EndingPanel.cs" />
     <Compile Include="Assets\Scripts\HitPool.cs" />
-    <Compile Include="Assets\Scripts\SpgradePanel.cs" />
-    <Compile Include="Assets\Scripts\WpgradePanel.cs" />
+    <Compile Include="Assets\Scripts\Panels\SpgradePanel.cs" />
+    <Compile Include="Assets\Scripts\Panels\WpgradePanel.cs" />
     <Compile Include="Assets\Scripts\Base\Up.cs" />
     <Compile Include="Assets\Scripts\Base\Wp.cs" />
-    <Compile Include="Assets\Scripts\ChangePanel.cs" />
+    <Compile Include="Assets\Scripts\Panels\ChangePanel.cs" />
     <Compile Include="Assets\Scripts\Monosingleton.cs" />
   </ItemGroup>
   <ItemGroup>
