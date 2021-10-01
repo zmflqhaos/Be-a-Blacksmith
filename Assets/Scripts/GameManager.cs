@@ -44,8 +44,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        SAVE_PATH = Application.dataPath + "/Save";
-        // Application.persistentDataPath
+        SAVE_PATH = Application.persistentDataPath + "/Save";
+        // Application.dataPath
         if (!Directory.Exists(SAVE_PATH))
         {
             Directory.CreateDirectory(SAVE_PATH);
